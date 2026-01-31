@@ -29,6 +29,24 @@ body {
 }
 
 /* Utility: heading font applied globally to h1-h6 */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-heading);
+}
+
+/* Staggered card entrance — used by WishlistGrid */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,12 +1,12 @@
 import Filters from "./components/Filters";
 import Grid from "./components/Grid";
-import HomePage from "./components/HomePage";
+// import HomePage from "./components/HomePage";
 
 export default function Page(){
     return(
         <div className="min-h-screen bg-cream">
       {/* Page header with title + search */}
-        <HomePage />
+        {/* <HomePage /> */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
             <div className="flex flex-col lg:flex-row gap-8">
                 {/* Sidebar filters */}
