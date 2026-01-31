@@ -1,21 +1,34 @@
+/* Google Fonts */
 @import "tailwindcss";
 
-/* opcional: variables de font-family */
 @theme {
   --color-terracotta: #C97A63;
+  --color-terracotta-light: #f0d5cc;
   --color-sage: #7D9D8C;
+  --color-sage-light: #e1ecec;
   --color-cream: #FAF7F2;
   --color-charcoal: #2E2E2E;
   --color-mustard: #E2B44A;
-  
+  --color-mustard-light: #fdf3d9;
+
   --radius-soft: 10px;
-  
+  --radius-xl: 20px;
+
   --shadow-soft: 0 10px 30px rgb(0 0 0 / 0.08);
-  
+  --shadow-md: 0 4px 16px rgb(0 0 0 / 0.08);
+  --shadow-hover: 0 20px 50px rgb(0 0 0 / 0.15);
+
   --font-family-heading: 'Playfair Display', serif;
   --font-family-body: 'Inter', sans-serif;
 }
 
 body {
   font-family: var(--font-family-body);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+}
+
+/* Utility: heading font applied globally to h1-h6 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
 }

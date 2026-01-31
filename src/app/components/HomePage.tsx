@@ -1,10 +1,15 @@
 import Hero from "./Hero";
+import Features from "./Features";
+import Stats from "./Stats";
+import CTA from "./CTA";
 
 export default function HomePage() {
-    return (
-        <div className="w-full max-w-4xl mx-auto p-8">
-            <Hero/>
-        </div>
-    )
-
+  return (
+    <>
+      <Hero />
+      <Features />
+      <Stats />
+      <CTA />
+    </>
+  );
 }
