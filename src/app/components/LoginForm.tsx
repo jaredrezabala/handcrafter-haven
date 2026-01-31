@@ -3,10 +3,10 @@ export default function LoginForm() {
     <div className="w-full max-w-md bg-white rounded-soft shadow-soft p-10">
       <div className="mb-8 text-center">
         <h1 className="font-heading text-3xl text-charcoal mb-2">
-          Bienvenido a Handcrafted Haven
+          Welcome to Handcrafted Haven
         </h1>
         <p className="font-body text-sm text-charcoal/70">
-          Artesanía real, hecha con intención.
+          Real craftsmanship, made with intention.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export default function LoginForm() {
       </form>
 
       <p className="mt-6 text-center text-xs text-charcoal/60 font-body">
-        Hecho con cuidado 🤍 por creadores independientes
+        Mabe by Jared Rezabala
       </p>
     </div>
   );
