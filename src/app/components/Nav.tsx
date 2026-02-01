@@ -10,7 +10,6 @@ export default function Nav() {
     { label: "Home", href: "/" },
     { label: "Marketplace", href: "/marketplace" },
     { label: "Artisans", href: "/artisans" },
-    { label: "About", href: "/about" },
   ];
 
   return (

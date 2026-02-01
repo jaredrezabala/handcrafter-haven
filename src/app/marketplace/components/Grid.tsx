@@ -7,6 +7,7 @@ interface Product {
   id: number;
   title: string;
   artisan: string;
+  artisanId: number;
   price: number;
   rating: number;
   reviews: number;
@@ -16,18 +17,18 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, title: "Hand-Painted Ceramic Vase", artisan: "Maria Rosales", price: 68, rating: 4.8, reviews: 34, category: "Ceramics", emoji: "🏺", gradient: "from-[#FFE5D9] to-[#C97A63]" },
-  { id: 2, title: "Woven Wall Hanging", artisan: "Elena Fuentes", price: 42, rating: 4.5, reviews: 21, category: "Textiles", emoji: "🧵", gradient: "from-[#E8F3EE] to-[#7D9D8C]" },
-  { id: 3, title: "Soy & Vanilla Candle Set", artisan: "Lucas Herrera", price: 35, rating: 4.9, reviews: 58, category: "Candles", emoji: "🕯️", gradient: "from-[#FFF4D9] to-[#E2B44A]" },
-  { id: 4, title: "Handknit Wool Scarf", artisan: "Sofia Mendez", price: 55, rating: 4.6, reviews: 19, category: "Textiles", emoji: "🧶", gradient: "from-[#EEE8F0] to-[#8A7D9D]" },
-  { id: 5, title: "Silver Leaf Earrings", artisan: "Andres Vega", price: 78, rating: 4.7, reviews: 42, category: "Jewelry", emoji: "✨", gradient: "from-[#E8EFF8] to-[#7D8DA0]" },
-  { id: 6, title: "Carved Wooden Bowl", artisan: "Pedro Almeida", price: 92, rating: 4.4, reviews: 15, category: "Woodwork", emoji: "🪵", gradient: "from-[#F5EBE0] to-[#A0785A]" },
-  { id: 7, title: "Handwoven Placemat Set", artisan: "Carmen Loza", price: 48, rating: 4.3, reviews: 27, category: "Basket Weaving", emoji: "🧺", gradient: "from-[#E6F0E8] to-[#5D8A6B]" },
-  { id: 8, title: "Glazed Pottery Mugs", artisan: "Maria Rosales", price: 44, rating: 4.8, reviews: 61, category: "Ceramics", emoji: "☕", gradient: "from-[#F0E0D9] to-[#B86A4E]" },
-  { id: 9, title: "Beeswax Pillar Candles", artisan: "Lucas Herrera", price: 29, rating: 4.6, reviews: 38, category: "Candles", emoji: "🕯️", gradient: "from-[#FFFBE6] to-[#D4A832]" },
-  { id: 10, title: "Macramé Plant Hanger", artisan: "Sofia Mendez", price: 36, rating: 4.5, reviews: 44, category: "Textiles", emoji: "🪴", gradient: "from-[#EBF2EC] to-[#6B9980]" },
-  { id: 11, title: "Hand-Carved Figurine", artisan: "Pedro Almeida", price: 115, rating: 4.9, reviews: 12, category: "Woodwork", emoji: "🗿", gradient: "from-[#F2E8DC] to-[#9A7050]" },
-  { id: 12, title: "Copper Ring with Gem", artisan: "Andres Vega", price: 95, rating: 4.7, reviews: 29, category: "Jewelry", emoji: "💍", gradient: "from-[#E4F0F8] to-[#6A9BBF]" },
+  { id: 1, title: "Hand-Painted Ceramic Vase", artisan: "Maria Rosales", artisanId:1, price: 68, rating: 4.8, reviews: 34, category: "Ceramics", emoji: "🏺", gradient: "from-[#FFE5D9] to-[#C97A63]" },
+  { id: 2, title: "Woven Wall Hanging", artisan: "Elena Fuentes", artisanId:2, price: 42, rating: 4.5, reviews: 21, category: "Textiles", emoji: "🧵", gradient: "from-[#E8F3EE] to-[#7D9D8C]" },
+  { id: 3, title: "Soy & Vanilla Candle Set", artisan: "Lucas Herrera", artisanId:3, price: 35, rating: 4.9, reviews: 58, category: "Candles", emoji: "🕯️", gradient: "from-[#FFF4D9] to-[#E2B44A]" },
+  { id: 4, title: "Handknit Wool Scarf", artisan: "Sofia Mendez", artisanId:4, price: 55, rating: 4.6, reviews: 19, category: "Textiles", emoji: "🧶", gradient: "from-[#EEE8F0] to-[#8A7D9D]" },
+  { id: 5, title: "Silver Leaf Earrings", artisan: "Andres Vega", artisanId:5, price: 78, rating: 4.7, reviews: 42, category: "Jewelry", emoji: "✨", gradient: "from-[#E8EFF8] to-[#7D8DA0]" },
+  { id: 6, title: "Carved Wooden Bowl", artisan: "Pedro Almeida", artisanId:6, price: 92, rating: 4.4, reviews: 15, category: "Woodwork", emoji: "🪵", gradient: "from-[#F5EBE0] to-[#A0785A]" },
+  { id: 7, title: "Handwoven Placemat Set", artisan: "Carmen Loza", artisanId:7, price: 48, rating: 4.3, reviews: 27, category: "Basket Weaving", emoji: "🧺", gradient: "from-[#E6F0E8] to-[#5D8A6B]" },
+  { id: 8, title: "Glazed Pottery Mugs", artisan: "Maria Rosales", artisanId:8, price: 44, rating: 4.8, reviews: 61, category: "Ceramics", emoji: "☕", gradient: "from-[#F0E0D9] to-[#B86A4E]" },
+  { id: 9, title: "Beeswax Pillar Candles", artisan: "Lucas Herrera", artisanId:9, price: 29, rating: 4.6, reviews: 38, category: "Candles", emoji: "🕯️", gradient: "from-[#FFFBE6] to-[#D4A832]" },
+  { id: 10, title: "Macramé Plant Hanger", artisan: "Sofia Mendez", artisanId:10, price: 36, rating: 4.5, reviews: 44, category: "Textiles", emoji: "🪴", gradient: "from-[#EBF2EC] to-[#6B9980]" },
+  { id: 11, title: "Hand-Carved Figurine", artisan: "Pedro Almeida", artisanId:11, price: 115, rating: 4.9, reviews: 12, category: "Woodwork", emoji: "🗿", gradient: "from-[#F2E8DC] to-[#9A7050]" },
+  { id: 12, title: "Copper Ring with Gem", artisan: "Andres Vega", artisanId:12, price: 95, rating: 4.7, reviews: 29, category: "Jewelry", emoji: "💍", gradient: "from-[#E4F0F8] to-[#6A9BBF]" },
 ];
 
 const sortOptions = ["Featured", "Price: Low to High", "Price: High to Low", "Top Rated", "Newest"];
@@ -102,10 +103,12 @@ export default function Grid() {
           </select>
         </div>
       </div>
-
+            
       {/* product grid */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
         {sorted.map((product) => (
+          <Link href={`/marketplace/${product.id}`}>
           <div
             key={product.id}
             className="group bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-400 hover:-translate-y-1.5 flex flex-col"
@@ -154,7 +157,7 @@ export default function Grid() {
                   {product.title}
                 </h3>
                 <Link
-                  href={`/artisan/${product.artisan.toLowerCase().replace(/\s+/g, "-")}`}
+                  href={`/artisans/${product.artisan.toLowerCase().replace(/\s+/g, "-")}`}
                   className="text-xs text-sage hover:text-terracotta transition-colors duration-200 mt-0.5 inline-block"
                 >
                   by {product.artisan}
@@ -174,8 +177,10 @@ export default function Grid() {
               </div>
             </div>
           </div>
+          </Link>
         ))}
       </div>
+      
     </div>
   );
 }
