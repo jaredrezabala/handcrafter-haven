@@ -2,15 +2,27 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useAuth } from "./AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const router = useRouter();
 
   const links = [
     { label: "Home", href: "/" },
     { label: "Marketplace", href: "/marketplace" },
     { label: "Artisans", href: "/artisans" },
+    { label: "About", href: "/about" },
   ];
+
+  const handleLogout = () => {
+    logout();
+    setUserMenuOpen(false);
+    router.push("/");
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-terracotta/10">
@@ -31,17 +43,130 @@ export default function Nav() {
                 className="text-sm font-medium text-charcoal/70 hover:text-terracotta transition-colors duration-300 relative group"
               >
                 {link.label}
-                {/* animated underline */}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-terracotta group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
 
-            <Link
-              href="/auth/login"
-              className="ml-2 px-5 py-2 bg-terracotta text-white text-sm font-semibold rounded-soft shadow-soft hover:shadow-hover hover:-translate-y-0.5 transition-all duration-300"
-            >
-              Sign In
-            </Link>
+            {/* User menu or Sign In */}
+            {user ? (
+              <div className="relative">
+                <button
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  className="flex items-center gap-2 px-3 py-2 rounded-full bg-white border border-charcoal/10
+                             hover:border-terracotta hover:shadow-md transition-all duration-200"
+                >
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-terracotta to-sage flex items-center justify-center text-white text-sm font-bold">
+                    {user.name.charAt(0).toUpperCase()}
+                  </div>
+                  <span className="text-sm font-medium text-charcoal hidden lg:block">
+                    {user.name.split(" ")[0]}
+                  </span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    className={`transition-transform duration-200 ${userMenuOpen ? "rotate-180" : ""}`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+
+                {/* Dropdown */}
+                {userMenuOpen && (
+                  <>
+                    {/* Backdrop */}
+                    <div
+                      className="fixed inset-0 z-40"
+                      onClick={() => setUserMenuOpen(false)}
+                    />
+                    
+                    {/* Menu */}
+                    <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-hover border border-charcoal/8 overflow-hidden z-50">
+                      {/* User info header */}
+                      <div className="px-4 py-3 bg-cream border-b border-charcoal/8">
+                        <p className="text-sm font-semibold text-charcoal">{user.name}</p>
+                        <p className="text-xs text-charcoal/50">{user.email}</p>
+                        <span className="inline-block mt-1 px-2 py-0.5 rounded-full bg-terracotta/10 text-terracotta text-xs font-semibold">
+                          {user.userType === "artisan" ? "Artesano" : "Cliente"}
+                        </span>
+                      </div>
+
+                      {/* Menu items */}
+                      <div className="py-2">
+                        {user.userType === "artisan" ? (
+                          <>
+                            <Link
+                              href="/artisans/dashboard"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
+                            >
+                              📊 Dashboard
+                            </Link>
+                            <Link
+                              href={`/artisans/${user.id}`}
+                              onClick={() => setUserMenuOpen(false)}
+                              className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
+                            >
+                              👤 Mi Perfil Público
+                            </Link>
+                          </>
+                        ) : (
+                          <>
+                            <Link
+                              href="/customer/orders"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
+                            >
+                              📦 Mis Órdenes
+                            </Link>
+                            <Link
+                              href="/customer/wishlist"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
+                            >
+                              ❤️ Mi Wishlist
+                            </Link>
+                            <Link
+                              href="/customer/cart"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
+                            >
+                              🛒 Mi Carrito
+                            </Link>
+                          </>
+                        )}
+                        
+                        <hr className="my-2 border-charcoal/8" />
+                        
+                        <Link
+                          href="#"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
+                        >
+                          ⚙️ Configuración
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                        >
+                          🚪 Cerrar sesión
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/auth/login"
+                className="ml-2 px-5 py-2 bg-terracotta text-white text-sm font-semibold rounded-soft shadow-soft hover:shadow-hover hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
 
           {/* Mobile hamburger */}
@@ -72,7 +197,7 @@ export default function Nav() {
       {/* Mobile menu panel */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-6 pb-5 flex flex-col gap-1 border-t border-charcoal/5">
@@ -86,13 +211,57 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/auth/login"
-            onClick={() => setMenuOpen(false)}
-            className="mt-4 text-center px-5 py-2.5 bg-terracotta text-white text-sm font-semibold rounded-soft"
-          >
-            Sign In
-          </Link>
+          
+          {user ? (
+            <>
+              <hr className="my-3 border-charcoal/8" />
+              <p className="text-xs font-semibold text-charcoal/40 uppercase tracking-wider">
+                {user.name}
+              </p>
+              {user.userType === "artisan" ? (
+                <>
+                  <Link
+                    href="/artisan/dashboard"
+                    onClick={() => setMenuOpen(false)}
+                    className="mt-2 text-sm font-medium text-charcoal/70"
+                  >
+                    📊 Dashboard
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/customer/orders"
+                    onClick={() => setMenuOpen(false)}
+                    className="mt-2 text-sm font-medium text-charcoal/70"
+                  >
+                    📦 Mis Órdenes
+                  </Link>
+                  <Link
+                    href="/customer/wishlist"
+                    onClick={() => setMenuOpen(false)}
+                    className="mt-2 text-sm font-medium text-charcoal/70"
+                  >
+                    ❤️ Mi Wishlist
+                  </Link>
+                </>
+              )}
+              <button
+                onClick={handleLogout}
+                className="mt-2 text-sm font-medium text-red-600 text-left"
+              >
+                🚪 Cerrar sesión
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/auth/login"
+              onClick={() => setMenuOpen(false)}
+              className="mt-4 text-center px-5 py-2.5 bg-terracotta text-white text-sm font-semibold rounded-soft"
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </nav>

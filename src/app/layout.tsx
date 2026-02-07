@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/app/components/Nav";
 import Footer from "@/app/components/Footer";
+import { AuthProvider } from "@/app/components/AuthContext";
 
 export const metadata: Metadata = {
   title: "Handcrafted Haven",
@@ -14,11 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
-        <Nav />
-        <main className="flex flex-col">{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Nav />
+          <main className="flex flex-col">{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
