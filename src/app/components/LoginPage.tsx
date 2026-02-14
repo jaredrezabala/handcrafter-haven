@@ -39,10 +39,10 @@ export default function LoginPage() {
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-charcoal mb-2">
-            Bienvenido de nuevo
+            Welcome Back!
           </h1>
           <p className="text-sm text-charcoal/70">
-            Inicia sesión para continuar
+            Log-in to continue
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export default function LoginPage() {
           {/* Email */}
           <div>
             <label className="block text-sm font-medium text-charcoal mb-1.5">
-              Correo electrónico
+              Emain Address
             </label>
             <input
               type="email"
@@ -76,7 +76,7 @@ export default function LoginPage() {
           {/* Password */}
           <div>
             <label className="block text-sm font-medium text-charcoal mb-1.5">
-              Contraseña
+              Password
             </label>
             <input
               type="password"
@@ -97,13 +97,13 @@ export default function LoginPage() {
                 type="checkbox"
                 className="w-4 h-4 rounded accent-terracotta cursor-pointer"
               />
-              <span className="text-charcoal/60">Recordarme</span>
+              <span className="text-charcoal/60">Remember me</span>
             </label>
             <Link
               href="#"
               className="text-terracotta hover:text-charcoal transition-colors duration-200"
             >
-              ¿Olvidaste tu contraseña?
+              Forgot your password?
             </Link>
           </div>
 
@@ -115,7 +115,7 @@ export default function LoginPage() {
                        transition-all hover:-translate-y-0.5 hover:shadow-hover disabled:opacity-50
                        disabled:cursor-not-allowed disabled:transform-none"
           >
-            {isLoading ? "Iniciando sesión..." : "Iniciar sesión"}
+            {isLoading ? "Loging in..." : "Log in"}
           </button>
 
           {/* Divider */}
@@ -134,31 +134,31 @@ export default function LoginPage() {
             className="block w-full text-center border-2 border-sage text-sage py-2.5 rounded-soft text-sm font-semibold
                        transition-all hover:bg-sage/10 hover:-translate-y-0.5"
           >
-            Crear una cuenta nueva
+            Register
           </Link>
         </form>
 
         {/* Footer note */}
         <p className="mt-8 text-center text-xs text-charcoal/40">
-          Al iniciar sesión, aceptas nuestros{" "}
+          Do you accept the terms and conditions?{" "}
           <Link href="#" className="text-terracotta hover:underline">
-            Términos de Servicio
+            Service Terms
           </Link>{" "}
           y{" "}
           <Link href="#" className="text-terracotta hover:underline">
-            Política de Privacidad
+            Privacy Policy
           </Link>
         </p>
 
         {/* Demo credentials hint */}
         <div className="mt-6 p-4 bg-cream rounded-lg border border-charcoal/8">
           <p className="text-xs text-charcoal/50 mb-2 font-semibold">
-            📝 Cuentas de prueba:
+            📝 Test Accounts:
           </p>
           <div className="text-xs text-charcoal/60 space-y-1">
-            <p><strong>Artesano:</strong> maria@ceramica.com</p>
-            <p><strong>Cliente:</strong> cliente@test.com</p>
-            <p className="text-charcoal/40 mt-1">Contraseña: cualquiera</p>
+            <p><strong>Artisan:</strong> maria@ceramica.com</p>
+            <p><strong>Customer:</strong> cliente@test.com</p>
+            <p className="text-charcoal/40 mt-1">Password: anything</p>
           </div>
         </div>
       </div>

@@ -15,7 +15,6 @@ export default function Nav() {
     { label: "Home", href: "/" },
     { label: "Marketplace", href: "/marketplace" },
     { label: "Artisans", href: "/artisans" },
-    { label: "About", href: "/about" },
   ];
 
   const handleLogout = () => {
@@ -110,7 +109,7 @@ export default function Nav() {
                               onClick={() => setUserMenuOpen(false)}
                               className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
                             >
-                              👤 Mi Perfil Público
+                              👤 My Profile
                             </Link>
                           </>
                         ) : (
@@ -120,39 +119,33 @@ export default function Nav() {
                               onClick={() => setUserMenuOpen(false)}
                               className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
                             >
-                              📦 Mis Órdenes
+                              📦 My Order
                             </Link>
                             <Link
                               href="/customer/wishlist"
                               onClick={() => setUserMenuOpen(false)}
                               className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
                             >
-                              ❤️ Mi Wishlist
+                              ❤️ My Wishlist
                             </Link>
                             <Link
                               href="/customer/cart"
                               onClick={() => setUserMenuOpen(false)}
                               className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
                             >
-                              🛒 Mi Carrito
+                              🛒 My Cart
                             </Link>
                           </>
                         )}
                         
                         <hr className="my-2 border-charcoal/8" />
                         
-                        <Link
-                          href="#"
-                          onClick={() => setUserMenuOpen(false)}
-                          className="block px-4 py-2 text-sm text-charcoal hover:bg-cream transition-colors"
-                        >
-                          ⚙️ Configuración
-                        </Link>
+
                         <button
                           onClick={handleLogout}
                           className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
                         >
-                          🚪 Cerrar sesión
+                          🚪 Log out
                         </button>
                       </div>
                     </div>
@@ -235,14 +228,14 @@ export default function Nav() {
                     onClick={() => setMenuOpen(false)}
                     className="mt-2 text-sm font-medium text-charcoal/70"
                   >
-                    📦 Mis Órdenes
+                    📦 My Orders
                   </Link>
                   <Link
                     href="/customer/wishlist"
                     onClick={() => setMenuOpen(false)}
                     className="mt-2 text-sm font-medium text-charcoal/70"
                   >
-                    ❤️ Mi Wishlist
+                    ❤️ My Wishlist
                   </Link>
                 </>
               )}
@@ -250,7 +243,7 @@ export default function Nav() {
                 onClick={handleLogout}
                 className="mt-2 text-sm font-medium text-red-600 text-left"
               >
-                🚪 Cerrar sesión
+                🚪 Log out
               </button>
             </>
           ) : (

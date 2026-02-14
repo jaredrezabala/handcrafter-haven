@@ -57,7 +57,7 @@ export default function ArtisanDashboardProfile() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-cream">
         <div className="text-center">
-          <p className="text-charcoal/60">Cargando...</p>
+          <p className="text-charcoal/60">Loading...</p>
         </div>
       </div>
     );
@@ -76,13 +76,13 @@ export default function ArtisanDashboardProfile() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Volver al dashboard
+            Back to Dashboard
           </Link>
           <h1 className="text-3xl font-bold text-charcoal mb-1">
-            Editar perfil público
+            Edit Profile
           </h1>
           <p className="text-sm text-charcoal/60">
-            Esta información será visible para todos los clientes
+            This information will be visible to all customers
           </p>
         </div>
       </div>
@@ -105,7 +105,7 @@ export default function ArtisanDashboardProfile() {
               {/* Workshop name */}
               <div>
                 <label className="block text-sm font-semibold text-charcoal mb-2">
-                  Nombre del taller <span className="text-terracotta">*</span>
+                  Name of workshop <span className="text-terracotta">*</span>
                 </label>
                 <input
                   type="text"
@@ -118,14 +118,14 @@ export default function ArtisanDashboardProfile() {
                              transition-all duration-200"
                 />
                 <p className="mt-1 text-xs text-charcoal/40">
-                  El nombre de tu marca o taller artesanal
+                  Name of your brand or workshop
                 </p>
               </div>
 
               {/* Full name */}
               <div>
                 <label className="block text-sm font-semibold text-charcoal mb-2">
-                  Nombre completo <span className="text-terracotta">*</span>
+                  Full Name <span className="text-terracotta">*</span>
                 </label>
                 <input
                   type="text"
@@ -142,7 +142,7 @@ export default function ArtisanDashboardProfile() {
               {/* Location */}
               <div>
                 <label className="block text-sm font-semibold text-charcoal mb-2">
-                  Ubicación
+                  Location
                 </label>
                 <input
                   type="text"
@@ -154,14 +154,14 @@ export default function ArtisanDashboardProfile() {
                              transition-all duration-200"
                 />
                 <p className="mt-1 text-xs text-charcoal/40">
-                  Ciudad o región donde creas tus productos
+                  City or Region where you make your products
                 </p>
               </div>
 
               {/* Bio */}
               <div>
                 <label className="block text-sm font-semibold text-charcoal mb-2">
-                  Biografía
+                  Biography
                 </label>
                 <textarea
                   value={bio}
@@ -175,7 +175,7 @@ export default function ArtisanDashboardProfile() {
                 />
                 <div className="flex items-center justify-between mt-1">
                   <p className="text-xs text-charcoal/40">
-                    Esta descripción aparecerá en tu perfil público
+                    This description will appear in your public profile
                   </p>
                   <p className="text-xs text-charcoal/35">
                     {bio.length}/500
@@ -186,7 +186,7 @@ export default function ArtisanDashboardProfile() {
               {/* Profile image URL */}
               <div>
                 <label className="block text-sm font-semibold text-charcoal mb-2">
-                  URL de imagen de perfil
+                  Profile Picture URL
                 </label>
                 <input
                   type="url"
@@ -198,7 +198,7 @@ export default function ArtisanDashboardProfile() {
                              transition-all duration-200"
                 />
                 <p className="mt-1 text-xs text-charcoal/40">
-                  Opcional: enlace a tu foto de perfil
+                  Optional: Link to profile picture
                 </p>
               </div>
 
@@ -231,7 +231,7 @@ export default function ArtisanDashboardProfile() {
             <div className="sticky top-24">
               <div className="bg-white rounded-xl shadow-soft p-6">
                 <h3 className="text-sm font-bold text-charcoal mb-4 uppercase tracking-wider">
-                  Vista previa
+                  Preview
                 </h3>
 
                 {/* Preview card */}
@@ -253,14 +253,14 @@ export default function ArtisanDashboardProfile() {
                   </div>
 
                   <h4 className="text-lg font-bold text-charcoal mb-0.5">
-                    {workshopName || "Nombre del taller"}
+                    {workshopName || "Workshop Name"}
                   </h4>
                   <p className="text-sm text-charcoal/60 mb-3">
-                    {name || "Tu nombre"} · {location || "Tu ubicación"}
+                    {name || "You Name"} · {location || "Your Location"}
                   </p>
 
                   <p className="text-xs text-charcoal/50 leading-relaxed">
-                    {bio || "Tu biografía aparecerá aquí..."}
+                    {bio || "Your biography will appear here..."}
                   </p>
 
                   <div className="mt-4 flex items-center gap-2">
@@ -276,7 +276,7 @@ export default function ArtisanDashboardProfile() {
                 </div>
 
                 <p className="mt-4 text-xs text-charcoal/40 text-center">
-                  Así verán tu perfil los clientes
+                  This is how your costumers will see your profile
                 </p>
               </div>
             </div>
